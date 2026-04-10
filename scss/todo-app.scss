@@ -20,7 +20,9 @@ body {
 }
 
 header {
+    padding: 0 0.5rem;
     display: flex;
+    position: relative;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.1);
     border-bottom: 1px solid #90ee9066;
@@ -33,24 +35,28 @@ header {
         /* border: 2px dashed coral; */
     }
 
+    .header__back-icon {
+        margin-right: auto;
+    }
+
     .header__heading {
+        height: 100%;
+        width: 100%;
         flex: 1;
         display: flex;
         align-items: center;
         justify-content: center;
+        position: absolute;
+        inset: 0;
         text-transform: capitalize;
+        /* border: 2px solid red; */
     }
 
 }
 
-/* .aside { */
-/*     width: 0; */
-/*     position: absolute; */
-/* } */
-
 aside {
     padding: 0.5rem;
-    display: flex;
+    display: none;
     flex-direction: column;
     overflow: auto;
     /* border: 2px solid royalblue; */
@@ -117,15 +123,22 @@ main {
         background: rgba(255, 255, 255, 0.1);
         border: 1px solid #90ee9066;
 
-        h2 {
-            overflow-x: auto;
+        .main__heading-text {
+            overflow-x: hidden;
             overflow-y: hidden;
             text-wrap: nowrap;
-            /* padding: 0.7rem 1rem 0 1rem; */
-            border: 2px solid blue;
+
+            /* border: 2px solid blue; */
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            span {
+                display: block;
+            }
         }
 
-        p {
+        .main__body-text {
             width: 100%;
             height: auto;
             /* padding: 0 1rem 1rem; */
@@ -133,7 +146,7 @@ main {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            border: 2px solid deeppink;
+            /* border: 2px solid deeppink; */
         }
     }
 }
