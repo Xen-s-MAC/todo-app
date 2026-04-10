@@ -1,0 +1,24 @@
+/* utility class */
+.main .main__todo-item--create {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 4px dashed #90ee9033;
+
+    svg,
+    span {
+        display: block;
+        /* border: 2px solid deeppink; */
+    }
+
+    svg {
+        fill: rgba(255, 255, 255, 0.5);
+    }
+
+    span {
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.5);
+        text-transform: capitalize;
+    }
+}
