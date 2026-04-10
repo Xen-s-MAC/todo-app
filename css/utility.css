@@ -1,4 +1,8 @@
 /* utility class */
+.aside--appear {
+  display: flex;
+}
+
 .main .main__todo-item--create {
   padding: 1rem;
   display: flex;
@@ -18,6 +22,26 @@
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.5);
   text-transform: capitalize;
+}
+
+.main__heading-text--slide {
+  animation: slide 8s linear infinite;
+}
+
+/* Animation Keyframes */
+@keyframes slide {
+  0% {
+    transform: translate(100%);
+  }
+  30% {
+    transform: translate(0);
+  }
+  50% {
+    transform: translate(0);
+  }
+  100% {
+    transform: translate(-200%);
+  }
 }
 
 /*# sourceMappingURL=utility.css.map */

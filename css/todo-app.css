@@ -13,14 +13,16 @@ body {
   grid-template-areas: "header header" "aside main";
   font-family: Arial, Helvetica, sans-serif;
   color: white;
-  backdrop-filter: blur(5px);
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://images.pexels.com/photos/18337608/pexels-photo-18337608.jpeg) center/cover no-repeat;
   /* border: 2px solid red; */
 }
 
 header {
+  padding: 0 0.5rem;
   display: flex;
-  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid rgba(144, 238, 144, 0.4);
 }
 header div {
@@ -30,21 +32,25 @@ header div {
   justify-content: center;
   /* border: 2px dashed coral; */
 }
+header .header__back-icon {
+  margin-right: auto;
+}
 header .header__heading {
+  height: 100%;
+  width: 100%;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  inset: 0;
   text-transform: capitalize;
+  /* border: 2px solid red; */
 }
 
-/* .aside { */
-/*     width: 0; */
-/*     position: absolute; */
-/* } */
 aside {
   padding: 0.5rem;
-  display: flex;
+  display: none;
   flex-direction: column;
   overflow: auto;
   /* border: 2px solid royalblue; */
@@ -60,6 +66,7 @@ aside .aside__texteditor-body {
   font-family: inherit;
   background: transparent;
   color: inherit;
+  backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   /* border: 2px solid purple; */
 }
@@ -73,9 +80,7 @@ aside .aside__texteditor-head {
   font-size: 1.5rem;
   font-weight: bolder;
   border-radius: 10px 10px 0 0;
-  border-top: 1px solid rgba(144, 238, 144, 0.4);
-  border-left: 1px solid rgba(144, 238, 144, 0.4);
-  border-right: 1px solid rgba(144, 238, 144, 0.4);
+  border: 1px solid rgba(144, 238, 144, 0.4);
 }
 aside .aside__texteditor-body {
   height: 100%;
@@ -99,25 +104,36 @@ main {
 }
 main .main__todo-item {
   width: 100%;
+  max-height: 100px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(144, 238, 144, 0.4);
 }
-main .main__todo-item h2 {
-  padding: 0.7rem 1rem 0 1rem;
-  border: 2px solid blue;
+main .main__todo-item .main__heading-text {
+  overflow-x: hidden;
+  overflow-y: hidden;
+  text-wrap: nowrap;
+  /* border: 2px solid blue; */
 }
-main .main__todo-item p {
+main .main__todo-item .main__heading-text::-webkit-scrollbar {
+  display: none;
+}
+main .main__todo-item .main__heading-text span {
+  display: block;
+}
+main .main__todo-item .main__body-text {
   width: 100%;
   height: auto;
-  padding: 0 1rem 1rem;
+  /* padding: 0 1rem 1rem; */
   flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  border: 2px solid deeppink;
+  /* border: 2px solid deeppink; */
 }
 
 /*# sourceMappingURL=todo-app.css.map */
