@@ -68,6 +68,7 @@ function openTextEditor() {
     } else {
         aside.classList.add('aside--appear');
         body.style.gridTemplateAreas = '"header header" "aside main"';
+        document.querySelector('.aside__texteditor-head').focus();
     }
 
     // Reset
@@ -83,11 +84,8 @@ function openTodo() {
     }
 
     // Defining the element
-    let heading = document.getElementsByClassName('main__span-heading-text')[0];
-    let body = document.getElementsByClassName('main__body-text')[0];
-
-    // let heading = document.querySelector('.main__span-heading-text');
-    // let body = document.querySelector('.main__body-text');
+    let heading = this.querySelector('.main__span-heading-text');
+    let body = this.querySelector('.main__body-text');
 
     // console.log(heading)
     // console.log(body)
@@ -100,6 +98,23 @@ function openTodo() {
     document.getElementsByClassName('aside__texteditor-head')[0].value = todoHeading;
     document.getElementsByClassName('aside__texteditor-body')[0].value = todoBody;
 }
+
+// Event Listeners
+// For opening text editor or create new todo
+window.addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 'n') {
+        e.preventDefault();
+        openTextEditor();
+    }
+})
+
+// For saving todo using shortcut
+document.querySelector('aside').addEventListener('keydown', (e) => {
+    if (e.ctrlKey && e.key === 's') {
+        e.preventDefault();
+        addNewTodo();
+    }
+})
 
 
 // Custom conditional global styles

@@ -11,6 +11,9 @@
   justify-content: space-evenly;
   border: 4px dashed rgba(144, 238, 144, 0.2);
 }
+.main .main__todo-item--create .main__shortcuts {
+  display: flex;
+}
 .main .main__todo-item--create svg,
 .main .main__todo-item--create span {
   display: block;

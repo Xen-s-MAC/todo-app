@@ -11,6 +11,10 @@
     justify-content: space-evenly;
     border: 4px dashed #90ee9033;
 
+    .main__shortcuts {
+        display: flex;
+    }
+
     svg,
     span {
         display: block;
