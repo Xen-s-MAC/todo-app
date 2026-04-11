@@ -7,7 +7,6 @@
     <title>Todo App</title>
     <link rel="stylesheet" href="../css/todo-app.css">
     <link rel="stylesheet" href="../css/utility.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css">
 </head>
 
 <body>
@@ -20,7 +19,7 @@
             </a>
         </div>
         <h1 class="header__heading"><span>todo</span> <span>app</span></h1>
-        <div class="header__save">
+        <div class="header__save" onclick="addNewTodo()">
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
                 <path d="M840-680v480q0 33-23.5 56.5T760-120H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h480l160 160Zm-80 34L646-760H200v560h560v-446ZM565-275q35-35 35-85t-35-85q-35-35-85-35t-85 35q-35 35-35 85t35 85q35 35 85 35t85-35ZM240-560h360v-160H240v160Zm-40-86v446-560 114Z" />
             </svg>
@@ -31,12 +30,12 @@
             </svg>
         </div>
     </header>
-    <aside class="aside aside--appear" style="grid-area: aside;">
+    <aside class="aside" style="grid-area: aside;">
         <textarea class="aside__texteditor-head" placeholder="Title"></textarea>
         <textarea class="aside__texteditor-body" placeholder="Make todo"></textarea>
     </aside>
     <main class="main" style="grid-area: main;">
-        <div class="main__todo-item main__todo-item--create">
+        <div class="main__create-btn main__todo-item main__todo-item--create" onclick="openTextEditor()">
             <!-- <h2>Title</h2> -->
             <!-- <p>this is a paragraph inside todo item preview</p> -->
             <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3">
@@ -44,18 +43,11 @@
             </svg>
             <span>create</span>
         </div>
-        <div class="main__todo-item">
-            <h2 class="main__heading-text"><span>Title</span></h2>
-            <p class="main__body-text">this is a paragraph inside todo item preview Consectetur minima repellendus tenetur possimus dolores. Laboriosam velit laborum animi animi rerum nam? Et illo ipsa eligendi sapiente vero! Velit eaque ullam laboriosam qui unde consequatur autem Tempore officia ut ad ullam itaque Quae quam asperiores similique aliquam voluptas. Error praesentium corrupti repellat nam delectus nam rerum? Nam reiciendis repudiandae quod nihil ad Ex hic voluptate quam a quia? Voluptates dolor eum enim illo illum harum Perferendis dicta dignissimos quibusdam numquam laborum Recusandae iusto soluta laudantium voluptatum fugit Labore quasi officia neque sunt corrupti nulla deserunt? Quam molestias omnis vel quisquam fugit corporis, natus impedit Iusto nobis ipsa reiciendis ea.</p>
-        </div>
-        <div class="main__todo-item">
-            <h2 class="main__heading-text"><span class="main__heading-text--slide">Title Consectetur adipisicing nostrum quod impedit facere. Harum harum veniam facilis. is too long for a short area</span></h2>
-            <p class="main__body-text">this Sit necessitatibus voluptatum laborum vero mollitia cumque at, corporis. Natus? is a paragraph inside todo item preview Consectetur temporibus veniam sint nemo Temporeonsequatur quia ab provident similique nostrum nam Illum illo nam consequuntur dolorum nisi! Reprehenderit quaerat hic iste eligendi iusto, commodi? Labore nulla modi rerum</p>
-        </div>
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/eruda"></script>
     <script>eruda.init();</script>
+    <script type="text/javascript" src="../script/todo-app.js"></script>
 </body>
 
 </html>

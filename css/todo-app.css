@@ -10,7 +10,8 @@ body {
   display: grid;
   grid-template-columns: 50% 1fr;
   grid-template-rows: auto 1fr;
-  grid-template-areas: "header header" "aside main";
+  grid-template-areas: "header header" "main main";
+  gap: 0 0.5rem;
   font-family: Arial, Helvetica, sans-serif;
   color: white;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://images.pexels.com/photos/18337608/pexels-photo-18337608.jpeg) center/cover no-repeat;
@@ -32,6 +33,11 @@ header div {
   justify-content: center;
   /* border: 2px dashed coral; */
 }
+header .header__back-icon,
+header .header__save,
+header .header__dark-mode {
+  z-index: 10;
+}
 header .header__back-icon {
   margin-right: auto;
 }
@@ -45,11 +51,12 @@ header .header__heading {
   position: absolute;
   inset: 0;
   text-transform: capitalize;
+  z-index: 1;
   /* border: 2px solid red; */
 }
 
 aside {
-  padding: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
   display: none;
   flex-direction: column;
   overflow: auto;
@@ -76,9 +83,10 @@ aside .aside__texteditor-body::placeholder {
 }
 aside .aside__texteditor-head {
   height: auto;
-  padding: 0.5rem;
+  padding: 1rem 0.5rem 0 0.5rem;
   font-size: 1.5rem;
   font-weight: bolder;
+  /* corner-top-right-shape: notch; */
   border-radius: 10px 10px 0 0;
   border: 1px solid rgba(144, 238, 144, 0.4);
 }
@@ -95,41 +103,46 @@ aside .aside__texteditor-body {
 
 main {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(90px, 90px));
   gap: 0.5rem;
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 0.5rem 0;
   overflow-y: auto;
   overflow-x: hidden;
   /* border: 2px solid deeppink; */
 }
 main .main__todo-item {
   width: 100%;
-  max-height: 100px;
-  padding: 1rem;
+  height: 90px;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   border-radius: 10px;
   backdrop-filter: blur(10px);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(144, 238, 144, 0.4);
 }
 main .main__todo-item .main__heading-text {
-  overflow-x: hidden;
-  overflow-y: hidden;
+  width: 100%;
+  overflow: hidden;
   text-wrap: nowrap;
   /* border: 2px solid blue; */
 }
 main .main__todo-item .main__heading-text::-webkit-scrollbar {
   display: none;
 }
-main .main__todo-item .main__heading-text span {
+main .main__todo-item .main__heading-text span,
+main .main__todo-item .main__heading-text .main__span-heading-text {
   display: block;
+  /* border: 2px solid orange; */
 }
 main .main__todo-item .main__body-text {
   width: 100%;
   height: auto;
   /* padding: 0 1rem 1rem; */
-  flex: 1;
+  /* flex: 1; */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
