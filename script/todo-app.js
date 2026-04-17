@@ -46,6 +46,11 @@ function addNewTodo() {
     const mainContainer = document.getElementsByTagName('main')[0];
     mainContainer.insertBefore(newTodoItem, mainContainer.children[1]);
 
+    // If in mobile view editor close cross button tap
+    if (mobileView.matches) {
+        closeTextEditor();
+    }
+
     // Reset editor
     todoHeading.value = "";
     todoBody.value = "";
@@ -67,14 +72,18 @@ function openTextEditor() {
         body.style.gridTemplateAreas = '"header header" "main main"'
     } else {
         aside.classList.add('aside--appear');
-        body.style.gridTemplateAreas = '"header header" "aside main"';
+        if (mobileView.matches) {
+            updateEditorLayout();
+        } else {
+            body.style.gridTemplateAreas = '"header header" "aside main"';
+        }
         document.querySelector('.aside__texteditor-head').focus();
     }
 
     // Reset
     document.querySelector('.aside__texteditor-head').value = "";
     document.querySelector('.aside__texteditor-body').value = "";
-    console.log("is full bruh")
+    // console.log("is full bruh")
 }
 
 // Opening todo via Click
@@ -99,11 +108,22 @@ function openTodo() {
     document.getElementsByClassName('aside__texteditor-body')[0].value = todoBody;
 }
 
+// Aside cross button action
+function closeTextEditor() {
+    openTextEditor();
+    document.querySelector('main').style.display = "grid";
+}
+
+
+
 // Event Listeners
 // For opening text editor or create new todo
 window.addEventListener('keydown', (e) => {
     if (e.ctrlKey && e.key === 'n') {
         e.preventDefault();
+        if (mobileView.matches) {
+            document.querySelector('main').style.display = "grid";
+        }
         openTextEditor();
     }
 })
@@ -117,7 +137,23 @@ document.querySelector('aside').addEventListener('keydown', (e) => {
 })
 
 
-// Custom conditional global styles
-if (!document.querySelector('.aside').classList.contains('.aside--appear')) {
-    document.querySelector('main').style.paddingLeft = '0.5rem';
+// For Mediaquery
+let mobileView = window.matchMedia('(max-width: 768px)');
+
+function updateEditorLayout() {
+    let body = document.querySelector('body');
+    let main = document.querySelector('main');
+    // let aside = document.querySelector('aside');
+
+    // if (aside.classList.contains('aside--appear')) {
+    if (mobileView.matches) {
+        body.style.gridTemplateAreas = '"header header" "aside aside"';
+        main.style.display = 'none';
+    }
+    // }
+    // console.log('Ended updateEditorLayout')
 }
+
+// mobileView.addEventListener('change', updateEditorLayout);
+
+

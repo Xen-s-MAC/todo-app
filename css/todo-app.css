@@ -38,7 +38,6 @@ header div {
   /* border: 2px dashed coral; */
 }
 header .header__back-icon,
-header .header__save,
 header .header__dark-mode {
   z-index: 10;
 }
@@ -60,11 +59,24 @@ header .header__heading {
 }
 
 aside {
-  padding: 0.5rem 0 0.5rem 0.5rem;
+  padding: 0.5rem;
   display: none;
   flex-direction: column;
-  overflow: auto;
+  position: relative;
   /* border: 2px solid royalblue; */
+}
+aside .aside__editor-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(10px);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(144, 238, 144, 0.4);
+}
+aside .aside__editor-wrapper::-webkit-scrollbar {
+  display: none;
 }
 aside .aside__texteditor-head,
 aside .aside__texteditor-body {
@@ -77,32 +89,42 @@ aside .aside__texteditor-body {
   font-family: inherit;
   background: transparent;
   color: inherit;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
-  /* border: 2px solid purple; */
 }
 aside .aside__texteditor-head::placeholder,
 aside .aside__texteditor-body::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(255, 255, 255, 0.4);
+}
+aside .aside__header {
+  height: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+}
+aside .aside__header .aside__save-btn {
+  padding: 5px;
+  display: block;
+  outline: 1px solid rgb(0, 150, 200);
+  background: rgba(0, 150, 200, 0.3);
+}
+aside .aside__header .aside__cross-btn {
+  display: block;
+  border-top-right-radius: 10px;
+  outline: 1px solid red;
+  background-color: rgba(200, 0, 0, 0.5);
 }
 aside .aside__texteditor-head {
   height: auto;
-  padding: 1rem 0.5rem 0 0.5rem;
+  padding: 0 0.5rem 0 0.5rem;
   font-size: 1.5rem;
+  /* line-height: 2rem; */
   font-weight: bolder;
-  /* corner-top-right-shape: notch; */
-  border-radius: 10px 10px 0 0;
-  border: 1px solid rgba(144, 238, 144, 0.4);
+  border-bottom: 1px solid rgba(144, 238, 144, 0.4);
 }
 aside .aside__texteditor-body {
   height: 100%;
   padding: 0.5rem;
   flex-grow: 1;
   font-size: 1rem;
-  border-radius: 0 0 10px 10px;
-  border-left: 1px solid rgba(144, 238, 144, 0.4);
-  border-right: 1px solid rgba(144, 238, 144, 0.4);
-  border-bottom: 1px solid rgba(144, 238, 144, 0.4);
 }
 
 main {
@@ -110,7 +132,7 @@ main {
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(90px, 90px));
   gap: 0.5rem;
-  padding: 0.5rem 0.5rem 0.5rem 0;
+  padding: 0.5rem;
   overflow-y: auto;
   overflow-x: hidden;
   /* border: 2px solid deeppink; */
@@ -152,5 +174,12 @@ main .main__todo-item .main__body-text {
   text-overflow: ellipsis;
   /* border: 2px solid deeppink; */
 }
+
+/* Mobile Screen */
+/* @media (max-width: 768px) { */
+/*     body { */
+/*         border: 2px solid cyan; */
+/*     } */
+/* } */
 
 /*# sourceMappingURL=todo-app.css.map */
