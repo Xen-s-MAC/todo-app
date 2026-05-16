@@ -9,7 +9,7 @@
   grid-column: 1/-1;
   align-items: center;
   justify-content: space-evenly;
-  border: 4px dashed rgba(144, 238, 144, 0.2);
+  border: 4px dashed lightgreen;
 }
 .main .main__todo-item--create .main__shortcuts {
   display: flex;

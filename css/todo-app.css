@@ -147,12 +147,25 @@ main .main__todo-item {
   justify-content: center;
   border-radius: 10px;
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(144, 238, 144, 0.4);
+}
+main .main__todo-item .main__shortcuts {
+  display: flex;
+  gap: 0.2rem;
+}
+main .main__todo-item .main__shortcuts .main__shortcut-key {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.3rem;
+  color: lightgreen;
+  background: rgb(0, 0, 0);
+  border-radius: 10px;
+  border: 1px solid lightgreen;
 }
 main .main__todo-item .main__heading-text {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
+  overflow-y: hidden;
   text-wrap: nowrap;
   /* border: 2px solid blue; */
 }
